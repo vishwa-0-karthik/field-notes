@@ -1,7 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { createRoot } from 'react-dom/client';
-import Markdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
 import {
   ArrowLeft, ArrowRight, BookOpen, Check, CheckCircle2, ChevronDown, ChevronRight,
   Command, Grid2X2, List, Menu, Search, X, Layers3, Compass, CircleHelp,
@@ -10,6 +8,8 @@ import {
 import curriculum from './data/curriculum.json';
 import notes from './data/notes.json';
 import './styles.css';
+
+const MarkdownBody = React.lazy(() => import('./MarkdownBody'));
 
 type Lesson = (typeof curriculum.lessons)[number];
 type Note = {
@@ -23,10 +23,9 @@ type Note = {
 type View = 'all' | 'systems' | 'cases';
 const allLessons = curriculum.lessons as Lesson[];
 const noteMap = notes as Record<string, Note>;
-// Vite imports the authored Markdown as plain text; react-markdown renders it without raw HTML.
-// https://vite.dev/guide/features.html#glob-import and https://github.com/remarkjs/react-markdown
-const lessonFiles = import.meta.glob('./data/deep/*.md', { query: '?raw', import: 'default', eager: true }) as Record<string, string>;
-const deepNotes = Object.fromEntries(Object.entries(lessonFiles).map(([path, body]) => [path.split('/').pop()!.replace(/\.md$/, ''), body]));
+// Load only the selected lesson; search loads its full-text index separately when opened.
+const lessonFiles = import.meta.glob('./data/deep/*.md', { query: '?raw', import: 'default' }) as Record<string, () => Promise<string>>;
+const deepCodes = new Set(Object.keys(lessonFiles).map((path) => path.split('/').pop()!.replace(/\.md$/, '')));
 const lessonBySlug = new Map(allLessons.map((lesson) => [lesson.slug, lesson]));
 const moduleById = new Map(curriculum.parts.flatMap((part) => part.modules).map((module) => [module.id, module]));
 const moduleSummaries: Record<string, string> = {
@@ -81,8 +80,11 @@ function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [filter, setFilter] = useState<View>('all');
   const [layout, setLayout] = useState<'grid' | 'list'>('grid');
+  const [loadedNote, setLoadedNote] = useState<{ code: string; body: string } | null>(null);
+  const [searchDeepNotes, setSearchDeepNotes] = useState<Record<string, string>>({});
   const selected = slug ? lessonBySlug.get(slug) : undefined;
   const selectedIndex = selected ? allLessons.findIndex((lesson) => lesson.slug === selected.slug) : -1;
+  const deepBody = loadedNote && selected && loadedNote.code === selected.code ? loadedNote.body : null;
 
   useEffect(() => {
     const onPop = () => { setSlug(currentSlug()); setMenuOpen(false); };
@@ -101,12 +103,28 @@ function App() {
     document.title = selected ? `${selected.title} — Fieldnotes` : 'System design — Fieldnotes';
   }, [selected]);
   useEffect(() => { localStorage.setItem(completionKey, JSON.stringify(completed)); }, [completed]);
+  useEffect(() => {
+    if (!selected || !deepCodes.has(selected.code)) return;
+    let active = true;
+    lessonFiles[`./data/deep/${selected.code}.md`]().then((body) => {
+      if (active) setLoadedNote({ code: selected.code, body });
+    });
+    return () => { active = false; };
+  }, [selected]);
+  useEffect(() => {
+    if (!searchOpen) return;
+    let active = true;
+    import('./deepSearch').then(({ deepSearchNotes }) => {
+      if (active) setSearchDeepNotes(deepSearchNotes);
+    });
+    return () => { active = false; };
+  }, [searchOpen]);
 
   const searchResults = useMemo(() => {
     const term = query.trim().toLowerCase();
     if (!term) return allLessons.slice(0, 8);
-    return allLessons.filter((lesson) => `${lesson.code} ${lesson.title} ${moduleById.get(lesson.group)?.title || ''} ${deepNotes[lesson.code] || Object.values(noteMap[lesson.code] || {}).join(' ')}`.toLowerCase().includes(term)).slice(0, 30);
-  }, [query]);
+    return allLessons.filter((lesson) => `${lesson.code} ${lesson.title} ${moduleById.get(lesson.group)?.title || ''} ${searchDeepNotes[lesson.code] || Object.values(noteMap[lesson.code] || {}).join(' ')}`.toLowerCase().includes(term)).slice(0, 30);
+  }, [query, searchDeepNotes]);
   const displayParts = curriculum.parts.map((part) => ({
     ...part,
     modules: part.modules.filter((module) => filter === 'all' || (filter === 'systems' ? +module.number >= 15 && +module.number <= 17 : +module.number === 18))
@@ -168,9 +186,9 @@ function App() {
             <p>{curriculum.parts.flatMap((part) => part.modules).find((module) => module.id === selected.group)?.title}</p>
           </div>
           <div className="note-card">
-            <div className="note-meta"><span>FIELDNOTE {selected.code}</span><span>{deepNotes[selected.code] ? 'EXPANDED RESEARCH NOTE' : 'CONCISE REFERENCE NOTE'}</span></div>
+            <div className="note-meta"><span>FIELDNOTE {selected.code}</span><span>{deepCodes.has(selected.code) ? 'EXPANDED RESEARCH NOTE' : 'CONCISE REFERENCE NOTE'}</span></div>
             <div className="diagram-card" aria-label="Design flow illustration"><span>REQUEST</span><div className="diagram-line" /><span className="diagram-node">{selected.title.toLowerCase().includes('database') || selected.title.toLowerCase().includes('storage') ? 'STORE' : selected.title.toLowerCase().includes('search') ? 'INDEX' : 'SYSTEM'}</span><div className="diagram-line" /><span>OUTCOME</span></div>
-            {deepNotes[selected.code] ? <div className="note-body article-markdown"><Markdown remarkPlugins={[remarkGfm]}>{deepNotes[selected.code]}</Markdown></div> : <div className="note-body">
+            {deepCodes.has(selected.code) ? <div className="note-body article-markdown">{deepBody ? <React.Suspense fallback={<p>Loading lesson…</p>}><MarkdownBody body={deepBody} /></React.Suspense> : <p>Loading lesson…</p>}</div> : <div className="note-body">
               <p className="eyebrow">NOTES</p>
               <p className="lead">{noteMap[selected.code].thesis}</p>
               <h2>Design boundaries</h2><p>{noteMap[selected.code].design}</p>
@@ -185,7 +203,7 @@ function App() {
         </article>
         <aside className="lesson-aside"><div className="aside-card"><p className="eyebrow">IN THIS MODULE</p><strong>{curriculum.parts.flatMap((part) => part.modules).find((module) => module.id === selected.group)?.title}</strong><div className="aside-links">{groupLessons(selected.group).map((lesson) => <button key={lesson.code} className={selected.code === lesson.code ? 'active' : ''} onClick={() => openLesson(lesson)}><span>{lesson.code}</span>{lessonTitle(lesson)}{completed.includes(lesson.code) && <Check size={12} />}</button>)}</div></div><div className="aside-source">Independent notes organized against the <a href="https://fanout.sh/system/overview" target="_blank" rel="noreferrer">public Fanout curriculum <ExternalLink size={12} /></a>.</div></aside>
       </div> : <div className="overview">
-        <section className="overview-hero"><div><p className="hero-kicker">THE SYSTEM DESIGN LIBRARY</p><h1>Learn system design from <em>first principles.</em></h1><p className="hero-sub">{Object.keys(deepNotes).length} expanded research notes and {allLessons.length - Object.keys(deepNotes).length} concise notes across all {allLessons.length} topics.</p></div><div className="hero-art" aria-hidden="true"><div className="art-layer layer-back" /><div className="art-layer layer-middle" /><div className="art-layer layer-front"><span>system<br />design</span><span className="art-dots">···</span></div></div></section>
+        <section className="overview-hero"><div><p className="hero-kicker">THE SYSTEM DESIGN LIBRARY</p><h1>Learn system design from <em>first principles.</em></h1><p className="hero-sub">{deepCodes.size} expanded research notes and {allLessons.length - deepCodes.size} concise notes across all {allLessons.length} topics.</p></div><div className="hero-art" aria-hidden="true"><div className="art-layer layer-back" /><div className="art-layer layer-middle" /><div className="art-layer layer-front"><span>system<br />design</span><span className="art-dots">···</span></div></div></section>
         <div className="progress-callout"><div className="callout-left"><span className="callout-icon"><CheckCircle2 size={18} /></span><div><strong>Track what you understand.</strong><span>Your progress stays in this browser.</span></div></div><div className="callout-right"><span>{completed.length} of {allLessons.length} notes understood</span><button onClick={() => openLesson(allLessons.find((lesson) => !completed.includes(lesson.code)) || allLessons[0])}>Continue learning <ArrowRight size={15} /></button></div></div>
         <section className="structure-card"><div className="section-top"><p className="eyebrow">CURRICULUM STRUCTURE</p><span>18 MODULES / 200 NOTES</span></div><div className="module-grid">{curriculum.parts.flatMap((part) => part.modules).map((module) => <button key={module.id} onClick={() => document.getElementById(module.id)?.scrollIntoView({ behavior: 'smooth' })}><span className="grid-number">{module.number}</span><span className="grid-name">{module.title}</span><ArrowRight size={14} /><small>{module.count} NOTES</small></button>)}</div></section>
         <section className="curriculum" id="curriculum"><div className="curriculum-heading"><div><p className="eyebrow">FULL CURRICULUM</p><h2>Every topic, in one place.</h2></div><button className="inline-search" onClick={() => setSearchOpen(true)}><Search size={16} /> Search notes <kbd>⌘ K</kbd></button></div><div className="curriculum-controls"><div className="filter-group" aria-label="Filter curriculum"><button className={filter === 'all' ? 'selected' : ''} onClick={() => setFilter('all')}>All <span>200</span></button><button className={filter === 'systems' ? 'selected' : ''} onClick={() => setFilter('systems')}>Real-world systems <span>21</span></button><button className={filter === 'cases' ? 'selected' : ''} onClick={() => setFilter('cases')}>Case studies <span>5</span></button></div><div className="layout-group" aria-label="Layout"><button aria-label="Grid layout" className={layout === 'grid' ? 'selected' : ''} onClick={() => setLayout('grid')}><Grid2X2 size={16} /></button><button aria-label="List layout" className={layout === 'list' ? 'selected' : ''} onClick={() => setLayout('list')}><List size={17} /></button></div></div>
