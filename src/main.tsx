@@ -114,9 +114,13 @@ function App() {
   useEffect(() => {
     if (!searchOpen) return;
     let active = true;
-    import('./deepSearch').then(({ deepSearchNotes }) => {
-      if (active) setSearchDeepNotes(deepSearchNotes);
-    });
+    fetch('/deep-search.json')
+      .then((response) => {
+        if (!response.ok) throw new Error(`Search index request failed (${response.status})`);
+        return response.json() as Promise<Record<string, string>>;
+      })
+      .then((searchNotes) => { if (active) setSearchDeepNotes(searchNotes); })
+      .catch((error) => console.error('Could not load the full-text search index', error));
     return () => { active = false; };
   }, [searchOpen]);
 
