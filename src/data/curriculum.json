@@ -1,0 +1,1553 @@
+{
+  "parts": [
+    {
+      "id": "part-1",
+      "number": 1,
+      "title": "Fundamentals",
+      "modules": [
+        {
+          "id": "learning-foundations",
+          "number": "01",
+          "title": "Foundations",
+          "summary": "Clarify requirements, estimate capacity, and decide which complexity the system needs.",
+          "count": 13
+        },
+        {
+          "id": "learning-apis-services",
+          "number": "02",
+          "title": "APIs, services and protocols",
+          "summary": "Choose service boundaries and communication patterns, then handle retries and overload.",
+          "count": 13
+        },
+        {
+          "id": "learning-data-sql",
+          "number": "03",
+          "title": "Data modeling and SQL",
+          "summary": "Study data modeling and SQL.",
+          "count": 13
+        },
+        {
+          "id": "learning-nosql-partitioning",
+          "number": "04",
+          "title": "NoSQL, partitioning and IDs",
+          "summary": "Study noSQL, partitioning and IDs.",
+          "count": 14
+        },
+        {
+          "id": "learning-caching-fast-reads",
+          "number": "05",
+          "title": "Caching and fast reads",
+          "summary": "Place caches, keep their contents useful, and plan for misses and failures.",
+          "count": 6
+        },
+        {
+          "id": "learning-distributed-coordination",
+          "number": "06",
+          "title": "Distributed coordination",
+          "summary": "Reason about replication, agreement, locks, clocks, and consistency.",
+          "count": 13
+        },
+        {
+          "id": "learning-storage-engines",
+          "number": "07",
+          "title": "Storage engines",
+          "summary": "Follow how databases and object stores organize, persist, and retrieve bytes.",
+          "count": 20
+        },
+        {
+          "id": "learning-async-streams",
+          "number": "08",
+          "title": "Async work and streams",
+          "summary": "Separate background work from requests and handle retries, ordering, and contention.",
+          "count": 10
+        },
+        {
+          "id": "learning-search-retrieval",
+          "number": "09",
+          "title": "Search and retrieval",
+          "summary": "Build indexes, process queries, and retrieve useful results.",
+          "count": 17
+        },
+        {
+          "id": "learning-analytics-sketches",
+          "number": "10",
+          "title": "Analytics and sketches",
+          "summary": "Aggregate events and use compact data structures when exact answers cost too much.",
+          "count": 13
+        },
+        {
+          "id": "learning-realtime-social",
+          "number": "11",
+          "title": "Realtime, social and feeds",
+          "summary": "Deliver live updates, messages, and feeds under changing load.",
+          "count": 10
+        },
+        {
+          "id": "learning-geo-matching",
+          "number": "12",
+          "title": "Geo, matching and recs",
+          "summary": "Find nearby candidates, match supply to demand, and rank recommendations.",
+          "count": 8
+        },
+        {
+          "id": "learning-media-files",
+          "number": "13",
+          "title": "Media, files and CDN",
+          "summary": "Study media, files and CDN.",
+          "count": 11
+        },
+        {
+          "id": "learning-reliability-ops",
+          "number": "14",
+          "title": "Reliability and operations",
+          "summary": "Observe a running service, change it safely, and recover its data.",
+          "count": 13
+        }
+      ]
+    },
+    {
+      "id": "part-2",
+      "number": 2,
+      "title": "Real-world systems",
+      "modules": [
+        {
+          "id": "design-services",
+          "number": "15",
+          "title": "Service and data designs",
+          "summary": "Follow a complete system design, from requirements through failure behavior.",
+          "count": 7
+        },
+        {
+          "id": "design-products",
+          "number": "16",
+          "title": "Product designs",
+          "summary": "Follow a complete system design, from requirements through failure behavior.",
+          "count": 8
+        },
+        {
+          "id": "design-operations",
+          "number": "17",
+          "title": "Media and operations designs",
+          "summary": "Follow a complete system design, from requirements through failure behavior.",
+          "count": 6
+        }
+      ]
+    },
+    {
+      "id": "part-3",
+      "number": 3,
+      "title": "Case studies",
+      "modules": [
+        {
+          "id": "company-cases",
+          "number": "18",
+          "title": "Engineering case studies",
+          "summary": "Study the systems and incidents described by their engineering teams.",
+          "count": 5
+        }
+      ]
+    }
+  ],
+  "lessons": [
+    {
+      "code": "01.01",
+      "title": "Requirements clarification",
+      "slug": "requirements-clarification",
+      "group": "learning-foundations",
+      "kind": "lesson"
+    },
+    {
+      "code": "01.02",
+      "title": "Logical system design",
+      "slug": "logical-system-design",
+      "group": "learning-foundations",
+      "kind": "lesson"
+    },
+    {
+      "code": "01.03",
+      "title": "Non-functional requirements",
+      "slug": "non-functional-requirements",
+      "group": "learning-foundations",
+      "kind": "lesson"
+    },
+    {
+      "code": "01.04",
+      "title": "System design tradeoffs",
+      "slug": "system-design-tradeoffs",
+      "group": "learning-foundations",
+      "kind": "lesson"
+    },
+    {
+      "code": "01.05",
+      "title": "Availability, durability, consistency, cost",
+      "slug": "availability-durability-consistency-cost",
+      "group": "learning-foundations",
+      "kind": "lesson"
+    },
+    {
+      "code": "01.06",
+      "title": "Back-of-the-envelope capacity planning",
+      "slug": "back-of-the-envelope-capacity-planning",
+      "group": "learning-foundations",
+      "kind": "lesson"
+    },
+    {
+      "code": "01.07",
+      "title": "How a server handles many requests",
+      "slug": "concurrency-vs-parallelism",
+      "group": "learning-foundations",
+      "kind": "lesson"
+    },
+    {
+      "code": "01.08",
+      "title": "Horizontal vs vertical scaling",
+      "slug": "horizontal-vs-vertical-scaling",
+      "group": "learning-foundations",
+      "kind": "lesson"
+    },
+    {
+      "code": "01.09",
+      "title": "Monolith vs microservices",
+      "slug": "monolith-vs-microservices",
+      "group": "learning-foundations",
+      "kind": "lesson"
+    },
+    {
+      "code": "01.10",
+      "title": "Repository pattern",
+      "slug": "repository-pattern",
+      "group": "learning-foundations",
+      "kind": "lesson"
+    },
+    {
+      "code": "01.11",
+      "title": "Extensible data modeling",
+      "slug": "extensible-data-modeling",
+      "group": "learning-foundations",
+      "kind": "lesson"
+    },
+    {
+      "code": "01.12",
+      "title": "Cost-aware architecture",
+      "slug": "cost-aware-architecture",
+      "group": "learning-foundations",
+      "kind": "lesson"
+    },
+    {
+      "code": "01.13",
+      "title": "When not to add infrastructure",
+      "slug": "when-not-to-add-infrastructure",
+      "group": "learning-foundations",
+      "kind": "lesson"
+    },
+    {
+      "code": "02.01",
+      "title": "API design contracts",
+      "slug": "api-design-contracts",
+      "group": "learning-apis-services",
+      "kind": "lesson"
+    },
+    {
+      "code": "02.02",
+      "title": "Service-to-service communication",
+      "slug": "service-to-service-communication",
+      "group": "learning-apis-services",
+      "kind": "lesson"
+    },
+    {
+      "code": "02.03",
+      "title": "HTTP, REST, and gRPC",
+      "slug": "http-rest-grpc",
+      "group": "learning-apis-services",
+      "kind": "lesson"
+    },
+    {
+      "code": "02.04",
+      "title": "TCP vs UDP",
+      "slug": "tcp-vs-udp",
+      "group": "learning-apis-services",
+      "kind": "lesson"
+    },
+    {
+      "code": "02.05",
+      "title": "API gateway vs load balancer",
+      "slug": "api-gateway-vs-load-balancer",
+      "group": "learning-apis-services",
+      "kind": "lesson"
+    },
+    {
+      "code": "02.06",
+      "title": "Load balancers",
+      "slug": "load-balancers",
+      "group": "learning-apis-services",
+      "kind": "lesson"
+    },
+    {
+      "code": "02.07",
+      "title": "Consistent-hashing load balancing",
+      "slug": "consistent-hashing-load-balancing",
+      "group": "learning-apis-services",
+      "kind": "lesson"
+    },
+    {
+      "code": "02.08",
+      "title": "Event contracts",
+      "slug": "event-contracts",
+      "group": "learning-apis-services",
+      "kind": "lesson"
+    },
+    {
+      "code": "02.09",
+      "title": "Retries, timeouts, and idempotency",
+      "slug": "retries-timeouts-idempotency",
+      "group": "learning-apis-services",
+      "kind": "lesson"
+    },
+    {
+      "code": "02.10",
+      "title": "Batching",
+      "slug": "batching",
+      "group": "learning-apis-services",
+      "kind": "lesson"
+    },
+    {
+      "code": "02.11",
+      "title": "Backpressure",
+      "slug": "backpressure",
+      "group": "learning-apis-services",
+      "kind": "lesson"
+    },
+    {
+      "code": "02.12",
+      "title": "Tail latency",
+      "slug": "tail-latency",
+      "group": "learning-apis-services",
+      "kind": "lesson"
+    },
+    {
+      "code": "02.13",
+      "title": "Load shedding",
+      "slug": "load-shedding",
+      "group": "learning-apis-services",
+      "kind": "lesson"
+    },
+    {
+      "code": "03.01",
+      "title": "Relational database design",
+      "slug": "relational-database-design",
+      "group": "learning-data-sql",
+      "kind": "lesson"
+    },
+    {
+      "code": "03.02",
+      "title": "Design: a key-value store on SQL",
+      "slug": "sql-backed-key-value-store",
+      "group": "learning-data-sql",
+      "kind": "design"
+    },
+    {
+      "code": "03.03",
+      "title": "Database indexing",
+      "slug": "database-indexing",
+      "group": "learning-data-sql",
+      "kind": "lesson"
+    },
+    {
+      "code": "03.04",
+      "title": "B-tree",
+      "slug": "b-tree",
+      "group": "learning-data-sql",
+      "kind": "lesson"
+    },
+    {
+      "code": "03.05",
+      "title": "Query planning",
+      "slug": "query-planning",
+      "group": "learning-data-sql",
+      "kind": "lesson"
+    },
+    {
+      "code": "03.06",
+      "title": "Database locking and isolation",
+      "slug": "database-locking-and-isolation",
+      "group": "learning-data-sql",
+      "kind": "lesson"
+    },
+    {
+      "code": "03.07",
+      "title": "MVCC",
+      "slug": "mvcc",
+      "group": "learning-data-sql",
+      "kind": "lesson"
+    },
+    {
+      "code": "03.08",
+      "title": "Database WAL and recovery",
+      "slug": "database-wal-and-recovery",
+      "group": "learning-data-sql",
+      "kind": "lesson"
+    },
+    {
+      "code": "03.09",
+      "title": "Database ticket servers",
+      "slug": "database-ticket-servers",
+      "group": "learning-data-sql",
+      "kind": "lesson"
+    },
+    {
+      "code": "03.10",
+      "title": "Relational database scaling",
+      "slug": "relational-database-scaling",
+      "group": "learning-data-sql",
+      "kind": "lesson"
+    },
+    {
+      "code": "03.11",
+      "title": "Online indexing",
+      "slug": "online-indexing",
+      "group": "learning-data-sql",
+      "kind": "lesson"
+    },
+    {
+      "code": "03.12",
+      "title": "Schema evolution",
+      "slug": "schema-evolution",
+      "group": "learning-data-sql",
+      "kind": "lesson"
+    },
+    {
+      "code": "03.13",
+      "title": "Soft delete",
+      "slug": "soft-delete",
+      "group": "learning-data-sql",
+      "kind": "lesson"
+    },
+    {
+      "code": "04.01",
+      "title": "NoSQL decision boundaries",
+      "slug": "nosql-decision-boundaries",
+      "group": "learning-nosql-partitioning",
+      "kind": "lesson"
+    },
+    {
+      "code": "04.02",
+      "title": "Document vs key-value stores",
+      "slug": "document-vs-key-value-stores",
+      "group": "learning-nosql-partitioning",
+      "kind": "lesson"
+    },
+    {
+      "code": "04.03",
+      "title": "Columnar vs wide-column stores",
+      "slug": "columnar-vs-wide-column-stores",
+      "group": "learning-nosql-partitioning",
+      "kind": "lesson"
+    },
+    {
+      "code": "04.04",
+      "title": "Graph database decision boundary",
+      "slug": "graph-database-decision-boundary",
+      "group": "learning-nosql-partitioning",
+      "kind": "lesson"
+    },
+    {
+      "code": "04.05",
+      "title": "Sharding and partitioning",
+      "slug": "sharding-and-partitioning",
+      "group": "learning-nosql-partitioning",
+      "kind": "lesson"
+    },
+    {
+      "code": "04.06",
+      "title": "Hot partitions",
+      "slug": "hot-partitions",
+      "group": "learning-nosql-partitioning",
+      "kind": "lesson"
+    },
+    {
+      "code": "04.07",
+      "title": "Consistent hashing",
+      "slug": "consistent-hashing",
+      "group": "learning-nosql-partitioning",
+      "kind": "lesson"
+    },
+    {
+      "code": "04.08",
+      "title": "Distributed ID generation",
+      "slug": "distributed-id-generation",
+      "group": "learning-nosql-partitioning",
+      "kind": "lesson"
+    },
+    {
+      "code": "04.09",
+      "title": "UUID, ObjectId, and Snowflake",
+      "slug": "uuid-objectid-and-snowflake",
+      "group": "learning-nosql-partitioning",
+      "kind": "lesson"
+    },
+    {
+      "code": "04.10",
+      "title": "Snowflake ID design",
+      "slug": "snowflake-id-design",
+      "group": "learning-nosql-partitioning",
+      "kind": "lesson"
+    },
+    {
+      "code": "04.11",
+      "title": "Clock skew and ID ordering",
+      "slug": "clock-skew-and-id-ordering",
+      "group": "learning-nosql-partitioning",
+      "kind": "lesson"
+    },
+    {
+      "code": "04.12",
+      "title": "Keyset pagination",
+      "slug": "keyset-pagination",
+      "group": "learning-nosql-partitioning",
+      "kind": "lesson"
+    },
+    {
+      "code": "04.13",
+      "title": "Bloom filters",
+      "slug": "bloom-filters",
+      "group": "learning-nosql-partitioning",
+      "kind": "lesson"
+    },
+    {
+      "code": "04.14",
+      "title": "Hot and cold storage, archival",
+      "slug": "hot-cold-storage-archival",
+      "group": "learning-nosql-partitioning",
+      "kind": "lesson"
+    },
+    {
+      "code": "05.01",
+      "title": "Caching layers",
+      "slug": "caching-layers",
+      "group": "learning-caching-fast-reads",
+      "kind": "lesson"
+    },
+    {
+      "code": "05.02",
+      "title": "Distributed cache design",
+      "slug": "distributed-cache-design",
+      "group": "learning-caching-fast-reads",
+      "kind": "lesson"
+    },
+    {
+      "code": "05.03",
+      "title": "Cache eviction policies",
+      "slug": "cache-eviction-policies",
+      "group": "learning-caching-fast-reads",
+      "kind": "lesson"
+    },
+    {
+      "code": "05.04",
+      "title": "TTL expiration and cache reapers",
+      "slug": "ttl-expiration-and-cache-reapers",
+      "group": "learning-caching-fast-reads",
+      "kind": "lesson"
+    },
+    {
+      "code": "05.05",
+      "title": "Cache concurrency control",
+      "slug": "cache-concurrency-control",
+      "group": "learning-caching-fast-reads",
+      "kind": "lesson"
+    },
+    {
+      "code": "05.06",
+      "title": "Cache availability and database fallback",
+      "slug": "cache-availability-and-database-fallback",
+      "group": "learning-caching-fast-reads",
+      "kind": "lesson"
+    },
+    {
+      "code": "06.01",
+      "title": "Distributed systems foundations",
+      "slug": "distributed-systems-foundations",
+      "group": "learning-distributed-coordination",
+      "kind": "lesson"
+    },
+    {
+      "code": "06.02",
+      "title": "Consistency models",
+      "slug": "consistency-models",
+      "group": "learning-distributed-coordination",
+      "kind": "lesson"
+    },
+    {
+      "code": "06.03",
+      "title": "Replication",
+      "slug": "replication",
+      "group": "learning-distributed-coordination",
+      "kind": "lesson"
+    },
+    {
+      "code": "06.04",
+      "title": "CAP and PACELC",
+      "slug": "cap-and-pacelc",
+      "group": "learning-distributed-coordination",
+      "kind": "lesson"
+    },
+    {
+      "code": "06.05",
+      "title": "Clocks and ordering",
+      "slug": "clocks-and-ordering",
+      "group": "learning-distributed-coordination",
+      "kind": "lesson"
+    },
+    {
+      "code": "06.06",
+      "title": "Consensus",
+      "slug": "consensus",
+      "group": "learning-distributed-coordination",
+      "kind": "lesson"
+    },
+    {
+      "code": "06.07",
+      "title": "Leader election",
+      "slug": "leader-election",
+      "group": "learning-distributed-coordination",
+      "kind": "lesson"
+    },
+    {
+      "code": "06.08",
+      "title": "Distributed locks and leases",
+      "slug": "distributed-locks-and-leases",
+      "group": "learning-distributed-coordination",
+      "kind": "lesson"
+    },
+    {
+      "code": "06.09",
+      "title": "Redis Redlock and fencing tokens",
+      "slug": "redis-redlock-and-fencing-tokens",
+      "group": "learning-distributed-coordination",
+      "kind": "lesson"
+    },
+    {
+      "code": "06.10",
+      "title": "Circuit breakers and timeouts",
+      "slug": "circuit-breakers-and-timeouts",
+      "group": "learning-distributed-coordination",
+      "kind": "lesson"
+    },
+    {
+      "code": "06.11",
+      "title": "Gossip protocol",
+      "slug": "gossip-protocol",
+      "group": "learning-distributed-coordination",
+      "kind": "lesson"
+    },
+    {
+      "code": "06.12",
+      "title": "Metadata service and node discovery",
+      "slug": "metadata-service-and-node-discovery",
+      "group": "learning-distributed-coordination",
+      "kind": "lesson"
+    },
+    {
+      "code": "06.13",
+      "title": "Distributed hash tables",
+      "slug": "distributed-hash-tables",
+      "group": "learning-distributed-coordination",
+      "kind": "lesson"
+    },
+    {
+      "code": "07.01",
+      "title": "Storage engine design constraints",
+      "slug": "storage-engine-design-constraints",
+      "group": "learning-storage-engines",
+      "kind": "lesson"
+    },
+    {
+      "code": "07.02",
+      "title": "Storage engine tradeoffs",
+      "slug": "storage-engine-tradeoffs",
+      "group": "learning-storage-engines",
+      "kind": "lesson"
+    },
+    {
+      "code": "07.03",
+      "title": "A file-backed dictionary",
+      "slug": "file-backed-dictionary-storage-engine",
+      "group": "learning-storage-engines",
+      "kind": "lesson"
+    },
+    {
+      "code": "07.04",
+      "title": "Custom binary file format",
+      "slug": "custom-binary-file-format",
+      "group": "learning-storage-engines",
+      "kind": "lesson"
+    },
+    {
+      "code": "07.05",
+      "title": "Byte-range indexed object storage",
+      "slug": "byte-range-indexed-object-storage",
+      "group": "learning-storage-engines",
+      "kind": "lesson"
+    },
+    {
+      "code": "07.06",
+      "title": "Immutable versioned data files",
+      "slug": "immutable-versioned-data-files",
+      "group": "learning-storage-engines",
+      "kind": "lesson"
+    },
+    {
+      "code": "07.07",
+      "title": "Log-structured storage",
+      "slug": "log-structured-storage",
+      "group": "learning-storage-engines",
+      "kind": "lesson"
+    },
+    {
+      "code": "07.08",
+      "title": "Bitcask storage engine",
+      "slug": "bitcask-storage-engine",
+      "group": "learning-storage-engines",
+      "kind": "lesson"
+    },
+    {
+      "code": "07.09",
+      "title": "LSM-tree storage engine",
+      "slug": "lsm-tree-storage-engine",
+      "group": "learning-storage-engines",
+      "kind": "lesson"
+    },
+    {
+      "code": "07.10",
+      "title": "Memtable, WAL, and SSTable",
+      "slug": "memtable-wal-and-sstable",
+      "group": "learning-storage-engines",
+      "kind": "lesson"
+    },
+    {
+      "code": "07.11",
+      "title": "LSM read path: Bloom filters and sparse index",
+      "slug": "lsm-read-path-bloom-and-sparse-index",
+      "group": "learning-storage-engines",
+      "kind": "lesson"
+    },
+    {
+      "code": "07.12",
+      "title": "Compaction and amplification",
+      "slug": "compaction-and-amplification",
+      "group": "learning-storage-engines",
+      "kind": "lesson"
+    },
+    {
+      "code": "07.13",
+      "title": "Object storage vs database",
+      "slug": "object-storage-vs-database",
+      "group": "learning-storage-engines",
+      "kind": "lesson"
+    },
+    {
+      "code": "07.14",
+      "title": "S3 object storage architecture",
+      "slug": "s3-object-storage-architecture",
+      "group": "learning-storage-engines",
+      "kind": "lesson"
+    },
+    {
+      "code": "07.15",
+      "title": "Range partitioning vs consistent hashing for storage",
+      "slug": "range-partitioning-vs-consistent-hashing-storage",
+      "group": "learning-storage-engines",
+      "kind": "lesson"
+    },
+    {
+      "code": "07.16",
+      "title": "Partition manager and map table",
+      "slug": "partition-manager-and-map-table",
+      "group": "learning-storage-engines",
+      "kind": "lesson"
+    },
+    {
+      "code": "07.17",
+      "title": "Metadata database for object storage",
+      "slug": "metadata-db-for-object-storage",
+      "group": "learning-storage-engines",
+      "kind": "lesson"
+    },
+    {
+      "code": "07.18",
+      "title": "Append-only stream layer",
+      "slug": "append-only-object-storage-stream-layer",
+      "group": "learning-storage-engines",
+      "kind": "lesson"
+    },
+    {
+      "code": "07.19",
+      "title": "Durability and replication",
+      "slug": "object-storage-durability-and-replication",
+      "group": "learning-storage-engines",
+      "kind": "lesson"
+    },
+    {
+      "code": "07.20",
+      "title": "End-to-end checksums",
+      "slug": "end-to-end-checksums",
+      "group": "learning-storage-engines",
+      "kind": "lesson"
+    },
+    {
+      "code": "08.01",
+      "title": "Delegation and async work",
+      "slug": "delegation-and-async-work",
+      "group": "learning-async-streams",
+      "kind": "lesson"
+    },
+    {
+      "code": "08.02",
+      "title": "Task queue vs event stream",
+      "slug": "task-queue-vs-event-stream",
+      "group": "learning-async-streams",
+      "kind": "lesson"
+    },
+    {
+      "code": "08.03",
+      "title": "Event bus for product events",
+      "slug": "event-bus-for-product-events",
+      "group": "learning-async-streams",
+      "kind": "lesson"
+    },
+    {
+      "code": "08.04",
+      "title": "Queue lag",
+      "slug": "queue-lag",
+      "group": "learning-async-streams",
+      "kind": "lesson"
+    },
+    {
+      "code": "08.05",
+      "title": "Distributed task scheduler",
+      "slug": "distributed-task-scheduler",
+      "group": "learning-async-streams",
+      "kind": "lesson"
+    },
+    {
+      "code": "08.06",
+      "title": "Postgres SKIP LOCKED work queue",
+      "slug": "postgres-skip-locked-work-queue",
+      "group": "learning-async-streams",
+      "kind": "lesson"
+    },
+    {
+      "code": "08.07",
+      "title": "DAG workflow orchestration",
+      "slug": "dag-workflow-orchestration",
+      "group": "learning-async-streams",
+      "kind": "lesson"
+    },
+    {
+      "code": "08.08",
+      "title": "Rule engine and trigger framework",
+      "slug": "rule-engine-trigger-framework",
+      "group": "learning-async-streams",
+      "kind": "lesson"
+    },
+    {
+      "code": "08.09",
+      "title": "Fanout patterns",
+      "slug": "fanout-patterns",
+      "group": "learning-async-streams",
+      "kind": "lesson"
+    },
+    {
+      "code": "08.10",
+      "title": "Flash sale inventory locking",
+      "slug": "flash-sale-inventory-locking",
+      "group": "learning-async-streams",
+      "kind": "lesson"
+    },
+    {
+      "code": "09.01",
+      "title": "Information retrieval system design",
+      "slug": "information-retrieval-system-design",
+      "group": "learning-search-retrieval",
+      "kind": "lesson"
+    },
+    {
+      "code": "09.02",
+      "title": "Inverted index and posting lists",
+      "slug": "inverted-index-and-posting-lists",
+      "group": "learning-search-retrieval",
+      "kind": "lesson"
+    },
+    {
+      "code": "09.03",
+      "title": "Boolean and tiered search",
+      "slug": "boolean-tiered-search",
+      "group": "learning-search-retrieval",
+      "kind": "lesson"
+    },
+    {
+      "code": "09.04",
+      "title": "TF-IDF relevance scoring",
+      "slug": "tf-idf-relevance-scoring",
+      "group": "learning-search-retrieval",
+      "kind": "lesson"
+    },
+    {
+      "code": "09.05",
+      "title": "BM25 production ranking",
+      "slug": "bm25-production-ranking",
+      "group": "learning-search-retrieval",
+      "kind": "lesson"
+    },
+    {
+      "code": "09.06",
+      "title": "Stop words and champion lists",
+      "slug": "stop-words-and-champion-lists",
+      "group": "learning-search-retrieval",
+      "kind": "lesson"
+    },
+    {
+      "code": "09.07",
+      "title": "Query understanding pipeline",
+      "slug": "query-understanding-pipeline",
+      "group": "learning-search-retrieval",
+      "kind": "lesson"
+    },
+    {
+      "code": "09.08",
+      "title": "Search feedback and relevance signals",
+      "slug": "search-feedback-and-relevance-signals",
+      "group": "learning-search-retrieval",
+      "kind": "lesson"
+    },
+    {
+      "code": "09.09",
+      "title": "Search evaluation metrics",
+      "slug": "search-evaluation-metrics",
+      "group": "learning-search-retrieval",
+      "kind": "lesson"
+    },
+    {
+      "code": "09.10",
+      "title": "Search index synchronization",
+      "slug": "search-index-synchronization",
+      "group": "learning-search-retrieval",
+      "kind": "lesson"
+    },
+    {
+      "code": "09.11",
+      "title": "Search index sharding",
+      "slug": "search-index-sharding",
+      "group": "learning-search-retrieval",
+      "kind": "lesson"
+    },
+    {
+      "code": "09.12",
+      "title": "Crawler and indexing pipeline",
+      "slug": "crawler-and-indexing-pipeline",
+      "group": "learning-search-retrieval",
+      "kind": "lesson"
+    },
+    {
+      "code": "09.13",
+      "title": "Vector search and hybrid retrieval",
+      "slug": "vector-search-and-hybrid-retrieval",
+      "group": "learning-search-retrieval",
+      "kind": "lesson"
+    },
+    {
+      "code": "09.14",
+      "title": "Design: autocomplete",
+      "slug": "autocomplete-system-design",
+      "group": "learning-search-retrieval",
+      "kind": "design"
+    },
+    {
+      "code": "09.15",
+      "title": "Design: did-you-mean and spell correction",
+      "slug": "did-you-mean-and-spell-correction",
+      "group": "learning-search-retrieval",
+      "kind": "design"
+    },
+    {
+      "code": "09.16",
+      "title": "Design: related searches",
+      "slug": "related-searches",
+      "group": "learning-search-retrieval",
+      "kind": "design"
+    },
+    {
+      "code": "09.17",
+      "title": "Design: recent searches",
+      "slug": "recent-searches-system-design",
+      "group": "learning-search-retrieval",
+      "kind": "design"
+    },
+    {
+      "code": "10.01",
+      "title": "Counting at scale",
+      "slug": "counting-at-scale",
+      "group": "learning-analytics-sketches",
+      "kind": "lesson"
+    },
+    {
+      "code": "10.02",
+      "title": "View counting at scale",
+      "slug": "view-counting-at-scale",
+      "group": "learning-analytics-sketches",
+      "kind": "lesson"
+    },
+    {
+      "code": "10.03",
+      "title": "Impression counting",
+      "slug": "impression-counting-system-design",
+      "group": "learning-analytics-sketches",
+      "kind": "lesson"
+    },
+    {
+      "code": "10.04",
+      "title": "HyperLogLog cardinality estimation",
+      "slug": "hyperloglog-cardinality-estimation",
+      "group": "learning-analytics-sketches",
+      "kind": "lesson"
+    },
+    {
+      "code": "10.05",
+      "title": "Mergeable sketches for analytics",
+      "slug": "mergeable-sketches-for-analytics",
+      "group": "learning-analytics-sketches",
+      "kind": "lesson"
+    },
+    {
+      "code": "10.06",
+      "title": "Bucketed time-window aggregation",
+      "slug": "bucketed-time-window-aggregation",
+      "group": "learning-analytics-sketches",
+      "kind": "lesson"
+    },
+    {
+      "code": "10.07",
+      "title": "Raw events vs derived analytics",
+      "slug": "raw-events-vs-derived-analytics",
+      "group": "learning-analytics-sketches",
+      "kind": "lesson"
+    },
+    {
+      "code": "10.08",
+      "title": "Count-min sketch",
+      "slug": "count-min-sketch",
+      "group": "learning-analytics-sketches",
+      "kind": "lesson"
+    },
+    {
+      "code": "10.09",
+      "title": "Top-k heavy hitters",
+      "slug": "top-k-heavy-hitters",
+      "group": "learning-analytics-sketches",
+      "kind": "lesson"
+    },
+    {
+      "code": "10.10",
+      "title": "Reservoir sampling",
+      "slug": "reservoir-sampling",
+      "group": "learning-analytics-sketches",
+      "kind": "lesson"
+    },
+    {
+      "code": "10.11",
+      "title": "t-digest quantile sketch",
+      "slug": "tdigest-quantile-sketch",
+      "group": "learning-analytics-sketches",
+      "kind": "lesson"
+    },
+    {
+      "code": "10.12",
+      "title": "Streaming percentile analytics",
+      "slug": "streaming-percentile-analytics",
+      "group": "learning-analytics-sketches",
+      "kind": "lesson"
+    },
+    {
+      "code": "10.13",
+      "title": "Design: live reactions at high throughput",
+      "slug": "live-reactions-high-throughput-design",
+      "group": "learning-analytics-sketches",
+      "kind": "design"
+    },
+    {
+      "code": "11.01",
+      "title": "Realtime database and WebSocket scaling",
+      "slug": "realtime-database-and-websocket-scaling",
+      "group": "learning-realtime-social",
+      "kind": "lesson"
+    },
+    {
+      "code": "11.02",
+      "title": "WebSockets vs SSE vs long polling",
+      "slug": "websockets-vs-sse-vs-long-polling",
+      "group": "learning-realtime-social",
+      "kind": "lesson"
+    },
+    {
+      "code": "11.03",
+      "title": "Social network database modeling",
+      "slug": "social-network-database-modeling",
+      "group": "learning-realtime-social",
+      "kind": "lesson"
+    },
+    {
+      "code": "11.04",
+      "title": "Social graph: follows and FlockDB",
+      "slug": "social-graph-follows-and-flockdb",
+      "group": "learning-realtime-social",
+      "kind": "lesson"
+    },
+    {
+      "code": "11.05",
+      "title": "Feed generation: push, pull, hybrid",
+      "slug": "feed-generation-push-pull-hybrid",
+      "group": "learning-realtime-social",
+      "kind": "lesson"
+    },
+    {
+      "code": "11.06",
+      "title": "Design: a newly-unread indicator",
+      "slug": "newly-unread-indicator",
+      "group": "learning-realtime-social",
+      "kind": "design"
+    },
+    {
+      "code": "11.07",
+      "title": "Hashtag extraction and tag store",
+      "slug": "hashtag-extraction-and-tag-store",
+      "group": "learning-realtime-social",
+      "kind": "lesson"
+    },
+    {
+      "code": "11.08",
+      "title": "Reaction modeling",
+      "slug": "reaction-modeling",
+      "group": "learning-realtime-social",
+      "kind": "lesson"
+    },
+    {
+      "code": "11.09",
+      "title": "Design: photo tagging coordinates",
+      "slug": "photo-tagging-coordinate-model",
+      "group": "learning-realtime-social",
+      "kind": "design"
+    },
+    {
+      "code": "11.10",
+      "title": "Design: live commentary",
+      "slug": "live-commentary-system-design",
+      "group": "learning-realtime-social",
+      "kind": "design"
+    },
+    {
+      "code": "12.01",
+      "title": "Nearby geospatial search",
+      "slug": "nearby-geospatial-search-system-design",
+      "group": "learning-geo-matching",
+      "kind": "lesson"
+    },
+    {
+      "code": "12.02",
+      "title": "Geohash prefix spatial index",
+      "slug": "geohash-prefix-spatial-index",
+      "group": "learning-geo-matching",
+      "kind": "lesson"
+    },
+    {
+      "code": "12.03",
+      "title": "Grid systems: H3, S2, geohash",
+      "slug": "geospatial-grid-systems-h3-s2-geohash",
+      "group": "learning-geo-matching",
+      "kind": "lesson"
+    },
+    {
+      "code": "12.04",
+      "title": "Redis GEO hot path",
+      "slug": "redis-geo-spatial-hot-path",
+      "group": "learning-geo-matching",
+      "kind": "lesson"
+    },
+    {
+      "code": "12.05",
+      "title": "Geofencing: point in polygon",
+      "slug": "geofencing-point-in-polygon",
+      "group": "learning-geo-matching",
+      "kind": "lesson"
+    },
+    {
+      "code": "12.06",
+      "title": "Ray casting point in polygon",
+      "slug": "ray-casting-point-in-polygon",
+      "group": "learning-geo-matching",
+      "kind": "lesson"
+    },
+    {
+      "code": "12.07",
+      "title": "Seen filtering: Bloom vs exact sets",
+      "slug": "seen-filtering-bloom-vs-exact-sets",
+      "group": "learning-geo-matching",
+      "kind": "lesson"
+    },
+    {
+      "code": "12.08",
+      "title": "Matching and recommendation algorithms",
+      "slug": "matching-and-recommendation-algorithms",
+      "group": "learning-geo-matching",
+      "kind": "lesson"
+    },
+    {
+      "code": "13.01",
+      "title": "Direct-to-object-storage upload",
+      "slug": "direct-to-object-storage-upload",
+      "group": "learning-media-files",
+      "kind": "lesson"
+    },
+    {
+      "code": "13.02",
+      "title": "Image CDN and resizing",
+      "slug": "image-cdn-and-resizing",
+      "group": "learning-media-files",
+      "kind": "lesson"
+    },
+    {
+      "code": "13.03",
+      "title": "An avatar service",
+      "slug": "gravatar-style-avatar-service",
+      "group": "learning-media-files",
+      "kind": "lesson"
+    },
+    {
+      "code": "13.04",
+      "title": "Video upload: signed URLs and multipart",
+      "slug": "video-upload-signed-url-multipart",
+      "group": "learning-media-files",
+      "kind": "lesson"
+    },
+    {
+      "code": "13.05",
+      "title": "Video transcoding pipeline",
+      "slug": "video-transcoding-pipeline",
+      "group": "learning-media-files",
+      "kind": "lesson"
+    },
+    {
+      "code": "13.06",
+      "title": "Adaptive bitrate and the CDN decider",
+      "slug": "adaptive-bitrate-and-cdn-decider",
+      "group": "learning-media-files",
+      "kind": "lesson"
+    },
+    {
+      "code": "13.07",
+      "title": "Signed URLs, DRM, and video security",
+      "slug": "signed-urls-drm-and-video-security",
+      "group": "learning-media-files",
+      "kind": "lesson"
+    },
+    {
+      "code": "13.08",
+      "title": "Live streaming, WebRTC, and latency",
+      "slug": "live-streaming-webrtc-and-latency",
+      "group": "learning-media-files",
+      "kind": "lesson"
+    },
+    {
+      "code": "13.09",
+      "title": "Remote file sync design",
+      "slug": "remote-file-sync-design",
+      "group": "learning-media-files",
+      "kind": "lesson"
+    },
+    {
+      "code": "13.10",
+      "title": "Fixed-block chunking and content addressing",
+      "slug": "fixed-block-chunking-and-content-addressing",
+      "group": "learning-media-files",
+      "kind": "lesson"
+    },
+    {
+      "code": "13.11",
+      "title": "Blocklist versioned file metadata",
+      "slug": "blocklist-versioned-file-metadata",
+      "group": "learning-media-files",
+      "kind": "lesson"
+    },
+    {
+      "code": "14.01",
+      "title": "Observability for distributed systems",
+      "slug": "observability-for-distributed-systems",
+      "group": "learning-reliability-ops",
+      "kind": "lesson"
+    },
+    {
+      "code": "14.02",
+      "title": "SLOs and error budgets",
+      "slug": "slos-and-error-budgets",
+      "group": "learning-reliability-ops",
+      "kind": "lesson"
+    },
+    {
+      "code": "14.03",
+      "title": "Incident response",
+      "slug": "incident-response",
+      "group": "learning-reliability-ops",
+      "kind": "lesson"
+    },
+    {
+      "code": "14.04",
+      "title": "Deployment and migration safety",
+      "slug": "deployment-and-migration-safety",
+      "group": "learning-reliability-ops",
+      "kind": "lesson"
+    },
+    {
+      "code": "14.05",
+      "title": "Database migration safety",
+      "slug": "database-migration-safety",
+      "group": "learning-reliability-ops",
+      "kind": "lesson"
+    },
+    {
+      "code": "14.06",
+      "title": "Parallel monolith read drain",
+      "slug": "parallel-monolith-read-drain",
+      "group": "learning-reliability-ops",
+      "kind": "lesson"
+    },
+    {
+      "code": "14.07",
+      "title": "Backups and restore",
+      "slug": "database-backups-and-restore",
+      "group": "learning-reliability-ops",
+      "kind": "lesson"
+    },
+    {
+      "code": "14.08",
+      "title": "Disaster recovery",
+      "slug": "disaster-recovery",
+      "group": "learning-reliability-ops",
+      "kind": "lesson"
+    },
+    {
+      "code": "14.09",
+      "title": "Data retention, deletion, and privacy",
+      "slug": "data-retention-and-deletion",
+      "group": "learning-reliability-ops",
+      "kind": "lesson"
+    },
+    {
+      "code": "14.10",
+      "title": "Security and abuse prevention",
+      "slug": "security-and-abuse-prevention",
+      "group": "learning-reliability-ops",
+      "kind": "lesson"
+    },
+    {
+      "code": "14.11",
+      "title": "Rate limiter placement and keys",
+      "slug": "rate-limiter-placement-and-keys",
+      "group": "learning-reliability-ops",
+      "kind": "lesson"
+    },
+    {
+      "code": "14.12",
+      "title": "Sliding window rate limiter",
+      "slug": "sliding-window-rate-limiter",
+      "group": "learning-reliability-ops",
+      "kind": "lesson"
+    },
+    {
+      "code": "14.13",
+      "title": "Multi-tenant design",
+      "slug": "multi-tenant-design",
+      "group": "learning-reliability-ops",
+      "kind": "lesson"
+    },
+    {
+      "code": "15.01",
+      "title": "Design: a URL shortener, one machine",
+      "slug": "url-shortener-system-design",
+      "group": "design-services",
+      "kind": "design"
+    },
+    {
+      "code": "15.02",
+      "title": "Design: rate limiting and abuse prevention",
+      "slug": "rate-limiting-and-abuse-prevention-case-study",
+      "group": "design-services",
+      "kind": "design"
+    },
+    {
+      "code": "15.03",
+      "title": "Design: a URL shortener at scale",
+      "slug": "url-shortener-at-scale",
+      "group": "design-services",
+      "kind": "design"
+    },
+    {
+      "code": "15.04",
+      "title": "Design: a product listing",
+      "slug": "ecommerce-product-listing-system-design",
+      "group": "design-services",
+      "kind": "design"
+    },
+    {
+      "code": "15.05",
+      "title": "Design: a collaborative editor",
+      "slug": "collaborative-editing-system-design",
+      "group": "design-services",
+      "kind": "design"
+    },
+    {
+      "code": "15.06",
+      "title": "Design: an object store (S3)",
+      "slug": "object-store-system-design",
+      "group": "design-services",
+      "kind": "design"
+    },
+    {
+      "code": "15.07",
+      "title": "Design: a Kafka-style log",
+      "slug": "partitioned-log-system-design",
+      "group": "design-services",
+      "kind": "design"
+    },
+    {
+      "code": "16.01",
+      "title": "Design: a notification system",
+      "slug": "notification-system-design",
+      "group": "design-products",
+      "kind": "design"
+    },
+    {
+      "code": "16.02",
+      "title": "Design: a ticket booking system",
+      "slug": "ticket-booking-system-design",
+      "group": "design-products",
+      "kind": "design"
+    },
+    {
+      "code": "16.03",
+      "title": "Design: a payment system",
+      "slug": "payment-system-design",
+      "group": "design-products",
+      "kind": "design"
+    },
+    {
+      "code": "16.04",
+      "title": "Design: a search service",
+      "slug": "search-engine-system-design",
+      "group": "design-products",
+      "kind": "design"
+    },
+    {
+      "code": "16.05",
+      "title": "Design: a recommendation system",
+      "slug": "recommendation-system-design",
+      "group": "design-products",
+      "kind": "design"
+    },
+    {
+      "code": "16.06",
+      "title": "Design: chat and messaging",
+      "slug": "chat-and-messaging-system-design",
+      "group": "design-products",
+      "kind": "design"
+    },
+    {
+      "code": "16.07",
+      "title": "Design: a social feed",
+      "slug": "social-feed-system-design-case-study",
+      "group": "design-products",
+      "kind": "design"
+    },
+    {
+      "code": "16.08",
+      "title": "Design: nearby search",
+      "slug": "geospatial-nearby-search-case-study",
+      "group": "design-products",
+      "kind": "design"
+    },
+    {
+      "code": "17.01",
+      "title": "Design: ride matching",
+      "slug": "ride-matching-system-design",
+      "group": "design-operations",
+      "kind": "design"
+    },
+    {
+      "code": "17.02",
+      "title": "Design: a video platform",
+      "slug": "video-platform-system-design",
+      "group": "design-operations",
+      "kind": "design"
+    },
+    {
+      "code": "17.03",
+      "title": "Design: a file sync service",
+      "slug": "file-sync-system-design",
+      "group": "design-operations",
+      "kind": "design"
+    },
+    {
+      "code": "17.04",
+      "title": "Design: observability and SLOs",
+      "slug": "observability-slo-case-study",
+      "group": "design-operations",
+      "kind": "design"
+    },
+    {
+      "code": "17.05",
+      "title": "Design: a database migration",
+      "slug": "zero-downtime-database-migration-case-study",
+      "group": "design-operations",
+      "kind": "design"
+    },
+    {
+      "code": "17.06",
+      "title": "Design: a photo-sharing interview",
+      "slug": "interview-design-instagram",
+      "group": "design-operations",
+      "kind": "design"
+    },
+    {
+      "code": "18.01",
+      "title": "Case: Instagram's first architecture",
+      "slug": "case-instagram-early-architecture",
+      "group": "company-cases",
+      "kind": "case"
+    },
+    {
+      "code": "18.02",
+      "title": "Case: Stripe's idempotency keys",
+      "slug": "case-stripe-idempotency-keys",
+      "group": "company-cases",
+      "kind": "case"
+    },
+    {
+      "code": "18.03",
+      "title": "Case: how Discord stores trillions of messages",
+      "slug": "case-discord-message-storage",
+      "group": "company-cases",
+      "kind": "case"
+    },
+    {
+      "code": "18.04",
+      "title": "Case: Amazon Dynamo, the paper",
+      "slug": "case-amazon-dynamo",
+      "group": "company-cases",
+      "kind": "case"
+    },
+    {
+      "code": "18.05",
+      "title": "Case: GitLab’s database incident",
+      "slug": "case-gitlab-database-incident",
+      "group": "company-cases",
+      "kind": "case"
+    }
+  ]
+}
