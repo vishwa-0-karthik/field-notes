@@ -1,6 +1,6 @@
 # System Design Fieldnotes
 
-A local, responsive reference for system design. It indexes all 200 topics in the public Fanout system design curriculum across 18 modules. Every topic has an original concise note; the first fourteen modules, through reliability and operations, have expanded, research-backed lessons. The lesson names and module structure are used as an index; explanations here are independently written and are not copied from lesson pages.
+A local, responsive reference for system design. It indexes all 200 topics in the public Fanout system design curriculum across 18 modules. Every topic has an original, research-backed expanded lesson, written independently from the source pages. The lesson names and module structure are used as an index; the explanations are not copied from lesson pages.
 
 ## Run locally
 
@@ -20,4 +20,4 @@ Open the local address printed by Vite (usually `http://127.0.0.1:5173`). To cre
 - Local reading progress stored in this browser
 - Responsive desktop and mobile layouts
 
-Expanded lessons are authored as Markdown in `src/data/deep/` and include links to primary sources. Lessons without an expanded Markdown file use `src/data/notes.json`; `src/data/notes.tsv` and `src/data/content.tsv` are the editable source text for those concise notes. Curriculum titles and ordering live in `src/data/curriculum.json`. Run `npm run audit:content` to check lesson depth and coverage; `npm run audit:content -- --require-all` additionally requires all 200 expanded lessons.
+Expanded lessons are authored as Markdown in `src/data/deep/` and include source links. `src/data/notes.json`, `src/data/notes.tsv`, and `src/data/content.tsv` hold the concise index notes. Curriculum titles and ordering live in `src/data/curriculum.json`. Run `npm run audit:content -- --require-all` to check lesson depth and require all 200 expanded lessons. The full-text index is generated into `public/deep-search.json` and loaded only when search opens.
