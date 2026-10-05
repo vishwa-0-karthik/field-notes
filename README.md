@@ -1,6 +1,6 @@
 # System Design Fieldnotes
 
-A local, responsive reference for system design. It indexes all 200 topics in the public Fanout system design curriculum across 18 modules. Every topic has an original concise note; the first nine modules, through Search and retrieval, have expanded, research-backed lessons. The lesson names and module structure are used as an index; explanations here are independently written and are not copied from lesson pages.
+A local, responsive reference for system design. It indexes all 200 topics in the public Fanout system design curriculum across 18 modules. Every topic has an original concise note; the first ten modules, through Analytics and sketches, have expanded, research-backed lessons. The lesson names and module structure are used as an index; explanations here are independently written and are not copied from lesson pages.
 
 ## Run locally
 
